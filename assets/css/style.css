@@ -37,7 +37,7 @@ header div {
 
 .card-instructions,
 .question {
-  width: 80vw;
+  width: 60vw;
   font-size: 2em;
   margin-top: 2.5em;
   margin-bottom: 2.5em;
@@ -52,4 +52,29 @@ header div {
   color: white;
   border-radius: 10px;
   margin-top: 1em;
+}
+
+@media screen and (max-width: 1024px) {
+  .card-instructions,
+  .question {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-instructions,
+  .question {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .card-instructions,
+  .question {
+    width: 90vw;
+  }
+  .start-button,
+  .answer-btn {
+    font-size: 2em;
+  }
 }
