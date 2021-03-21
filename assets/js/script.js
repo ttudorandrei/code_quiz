@@ -1,7 +1,13 @@
 const startButtonElement = document.getElementById("start-btn");
 
 const constructQuestionContainer = () => {
+  const questionContainerSection = document.createElement("section");
+
+  questionContainerSection.setAttribute("id", "wrapper");
+  questionContainerSection.setAttribute("class", "wrapper");
+
   const questionContainerDiv = document.createElement("div");
+
   questionContainerDiv.setAttribute("class", "question-container");
 
   const questionDiv = document.createElement("h1");
@@ -34,6 +40,8 @@ const constructQuestionContainer = () => {
 
   fourthAnswer.textContent = "Answer 4";
 
+  document.body.appendChild(questionContainerSection);
+
   document.getElementById("wrapper").appendChild(questionContainerDiv);
 
   questionContainerDiv.appendChild(questionDiv);
@@ -48,7 +56,7 @@ const constructQuestionContainer = () => {
 
   btnContainerDiv.appendChild(fourthAnswer);
 
-  return questionContainerDiv;
+  return questionContainerSection;
 };
 
 const startGame = () => {
@@ -58,7 +66,7 @@ const startGame = () => {
   const gameDivElement = constructQuestionContainer();
 
   console.log(gameDivElement);
-  document.getElementById("wrapper").appendChild(gameDivElement);
+  document.body.appendChild(gameDivElement);
 };
 
 startButtonElement.addEventListener("click", startGame);
