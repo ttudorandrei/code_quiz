@@ -1,5 +1,72 @@
 const startButtonElement = document.getElementById("start-btn");
 const startGameSection = document.getElementById("start-section-wrapper");
+const bodyElement = document.body;
+
+const questions = [
+  {
+    question:
+      "The data type in JavaScript that can only have two values is called:",
+    choice1: "Boolean",
+    choice2: "Function",
+    choice3: "Memory",
+    choice4: "String",
+    answer: 1,
+  },
+
+  {
+    question:
+      "The data type in JavaScript that can only have two values is called:",
+    choice1: "Boolean",
+    choice2: "Function",
+    choice3: "Memory",
+    choice4: "String",
+    answer: 1,
+  },
+
+  {
+    question:
+      "The data type in JavaScript that can only have two values is called:",
+    choice1: "Boolean",
+    choice2: "Function",
+    choice3: "Memory",
+    choice4: "String",
+    answer: 1,
+  },
+
+  {
+    question:
+      "The data type in JavaScript that can only have two values is called:",
+    choice1: "Boolean",
+    choice2: "Function",
+    choice3: "Memory",
+    choice4: "String",
+    answer: 1,
+  },
+
+  {
+    question:
+      "The data type in JavaScript that can only have two values is called:",
+    choice1: "Boolean",
+    choice2: "Function",
+    choice3: "Memory",
+    choice4: "String",
+    answer: 1,
+  },
+
+  {
+    question:
+      "The data type in JavaScript that can only have two values is called:",
+    choice1: "Boolean",
+    choice2: "Function",
+    choice3: "Memory",
+    choice4: "String",
+    answer: 1,
+  },
+];
+
+const avaialableQuestions = [...questions];
+
+console.log(...questions);
 
 //construct the game-container div in js
 const constructQuestionContainer = () => {
@@ -41,7 +108,7 @@ const constructQuestionContainer = () => {
 
   fourthAnswer.textContent = "Answer 4";
 
-  document.body.appendChild(questionContainerSection);
+  bodyElement.appendChild(questionContainerSection);
 
   document.getElementById("wrapper").appendChild(questionContainerDiv);
 
@@ -66,10 +133,10 @@ const startGame = () => {
   const gameDivElement = constructQuestionContainer();
 
   //remove start-game element
-  document.body.removeChild(startGameSection);
+  bodyElement.removeChild(startGameSection);
 
   //insert question-container
-  document.body.appendChild(gameDivElement);
+  bodyElement.appendChild(gameDivElement);
 };
 
 startButtonElement.addEventListener("click", startGame);
