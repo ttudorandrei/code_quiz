@@ -1,7 +1,7 @@
 const startButtonElement = document.getElementById("start-btn");
 const startGameSection = document.getElementById("start-section-wrapper");
 const questionElement = document.getElementById("question");
-const answerButtonsElement = document.getElementById("answer-buttons");
+const answerButtonsElement = document.getElementsByClassName("answer-btn");
 const timerSpanElement = document.getElementById("timer");
 const bodyElement = document.body;
 
@@ -86,16 +86,6 @@ const questions = [
   },
 ];
 
-console.log(
-  startButtonElement,
-  startGameSection,
-  questionElement,
-  answerButtonsElement,
-  timer
-);
-
-// CAUTION! to add data to question/button on click without gettin the "null" error, try and use .innerHTML inside the startGame function
-
 //construct the game-container div in js
 const constructQuestionContainer = () => {
   const questionContainerSection = document.createElement("section");
@@ -117,25 +107,25 @@ const constructQuestionContainer = () => {
 
   const firstAnswer = document.createElement("button");
   firstAnswer.setAttribute("class", "answer-btn");
-  firstAnswer.setAttribute("id", "answer-buttons");
+  firstAnswer.setAttribute("id", "answer-one");
 
   firstAnswer.textContent = "Answer 1";
 
   const secondAnswer = document.createElement("button");
   secondAnswer.setAttribute("class", "answer-btn");
-  firstAnswer.setAttribute("id", "answer-buttons");
+  secondAnswer.setAttribute("id", "answer-two");
 
   secondAnswer.textContent = "Answer 2";
 
   const thirdAnswer = document.createElement("button");
   thirdAnswer.setAttribute("class", "answer-btn");
-  firstAnswer.setAttribute("id", "answer-buttons");
+  thirdAnswer.setAttribute("id", "answer-three");
 
   thirdAnswer.textContent = "Answer 3";
 
   const fourthAnswer = document.createElement("button");
   fourthAnswer.setAttribute("class", "answer-btn");
-  firstAnswer.setAttribute("id", "answer-buttons");
+  fourthAnswer.setAttribute("id", "answer-four");
 
   fourthAnswer.textContent = "Answer 4";
 
@@ -155,8 +145,11 @@ const constructQuestionContainer = () => {
 
   btnContainerDiv.appendChild(fourthAnswer);
 
+  console.log(questionContainerSection);
   return questionContainerSection;
 };
+
+const nextQuestion = () => {};
 
 const startTimer = () => {
   const timerTick = () => {
@@ -183,6 +176,7 @@ const startGame = () => {
   bodyElement.appendChild(gameDivElement);
 
   startTimer();
+  nextQuestion();
 };
 
 // Add timer
