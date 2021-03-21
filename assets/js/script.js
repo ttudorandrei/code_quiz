@@ -1,5 +1,7 @@
 const startButtonElement = document.getElementById("start-btn");
+const startGameSection = document.getElementById("start-section-wrapper");
 
+//construct the game-container div in js
 const constructQuestionContainer = () => {
   const questionContainerSection = document.createElement("section");
 
@@ -13,8 +15,7 @@ const constructQuestionContainer = () => {
   const questionDiv = document.createElement("h1");
   questionDiv.setAttribute("class", "question");
 
-  questionDiv.textContent =
-    "plain text container words differnet language car automobile honda technology ideatur lorem ipsum javascript questions random text question anwer samd etcetera";
+  questionDiv.textContent = "dummy text";
 
   const btnContainerDiv = document.createElement("div");
   btnContainerDiv.setAttribute("class", "button-container");
@@ -59,13 +60,15 @@ const constructQuestionContainer = () => {
   return questionContainerSection;
 };
 
+//replace card-container div with game-container div
 const startGame = () => {
-  //replace card-container div with game-container div
-
   //construct the game-container div in js
   const gameDivElement = constructQuestionContainer();
 
-  console.log(gameDivElement);
+  //remove start-game element
+  document.body.removeChild(startGameSection);
+
+  //insert question-container
   document.body.appendChild(gameDivElement);
 };
 
