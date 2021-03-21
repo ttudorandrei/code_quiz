@@ -1,72 +1,87 @@
 const startButtonElement = document.getElementById("start-btn");
 const startGameSection = document.getElementById("start-section-wrapper");
 const bodyElement = document.body;
+const questionElement = document.getElementById("question");
+const answerButtonsElement = document.getElementById("answer-buttons");
 
 const questions = [
   {
     question:
       "The data type in JavaScript that can only have two values is called:",
-    choice1: "Boolean",
-    choice2: "Function",
-    choice3: "Memory",
-    choice4: "String",
-    answer: 1,
+    answers: [
+      { text: "boolean", correct: true },
+      { text: "function", correct: false },
+      { text: "Memory", correct: false },
+      { text: "String", correct: false },
+    ],
   },
 
   {
     question:
       "The data type in JavaScript that can only have two values is called:",
-    choice1: "Boolean",
-    choice2: "Function",
-    choice3: "Memory",
-    choice4: "String",
-    answer: 1,
+    answers: [
+      { text: "boolean", correct: true },
+      { text: "function", correct: false },
+      { text: "Memory", correct: false },
+      { text: "String", correct: false },
+    ],
   },
 
   {
     question:
       "The data type in JavaScript that can only have two values is called:",
-    choice1: "Boolean",
-    choice2: "Function",
-    choice3: "Memory",
-    choice4: "String",
-    answer: 1,
+    answers: [
+      { text: "boolean", correct: true },
+      { text: "function", correct: false },
+      { text: "Memory", correct: false },
+      { text: "String", correct: false },
+    ],
   },
 
   {
     question:
       "The data type in JavaScript that can only have two values is called:",
-    choice1: "Boolean",
-    choice2: "Function",
-    choice3: "Memory",
-    choice4: "String",
-    answer: 1,
+    answers: [
+      { text: "boolean", correct: true },
+      { text: "function", correct: false },
+      { text: "Memory", correct: false },
+      { text: "String", correct: false },
+    ],
   },
 
   {
     question:
       "The data type in JavaScript that can only have two values is called:",
-    choice1: "Boolean",
-    choice2: "Function",
-    choice3: "Memory",
-    choice4: "String",
-    answer: 1,
+    answers: [
+      { text: "boolean", correct: true },
+      { text: "function", correct: false },
+      { text: "Memory", correct: false },
+      { text: "String", correct: false },
+    ],
   },
 
   {
     question:
       "The data type in JavaScript that can only have two values is called:",
-    choice1: "Boolean",
-    choice2: "Function",
-    choice3: "Memory",
-    choice4: "String",
-    answer: 1,
+    answers: [
+      { text: "boolean", correct: true },
+      { text: "function", correct: false },
+      { text: "Memory", correct: false },
+      { text: "String", correct: false },
+    ],
+  },
+
+  {
+    question:
+      "The data type in JavaScript that can only have two values is called:",
+    answers: [
+      { text: "boolean", correct: true },
+      { text: "function", correct: false },
+      { text: "Memory", correct: false },
+      { text: "String", correct: false },
+    ],
   },
 ];
-
-const avaialableQuestions = [...questions];
-
-console.log(...questions);
 
 //construct the game-container div in js
 const constructQuestionContainer = () => {
@@ -81,8 +96,7 @@ const constructQuestionContainer = () => {
 
   const questionDiv = document.createElement("h1");
   questionDiv.setAttribute("class", "question");
-
-  questionDiv.textContent = "dummy text";
+  questionDiv.setAttribute("id", "question");
 
   const btnContainerDiv = document.createElement("div");
   btnContainerDiv.setAttribute("class", "button-container");
@@ -90,21 +104,25 @@ const constructQuestionContainer = () => {
 
   const firstAnswer = document.createElement("button");
   firstAnswer.setAttribute("class", "answer-btn");
+  firstAnswer.setAttribute("id", "answer-buttons");
 
   firstAnswer.textContent = "Answer 1";
 
   const secondAnswer = document.createElement("button");
   secondAnswer.setAttribute("class", "answer-btn");
+  firstAnswer.setAttribute("id", "answer-buttons");
 
   secondAnswer.textContent = "Answer 2";
 
   const thirdAnswer = document.createElement("button");
   thirdAnswer.setAttribute("class", "answer-btn");
+  firstAnswer.setAttribute("id", "answer-buttons");
 
   thirdAnswer.textContent = "Answer 3";
 
   const fourthAnswer = document.createElement("button");
   fourthAnswer.setAttribute("class", "answer-btn");
+  firstAnswer.setAttribute("id", "answer-buttons");
 
   fourthAnswer.textContent = "Answer 4";
 
@@ -129,11 +147,11 @@ const constructQuestionContainer = () => {
 
 //replace card-container div with game-container div
 const startGame = () => {
-  //construct the game-container div in js
-  const gameDivElement = constructQuestionContainer();
-
   //remove start-game element
   bodyElement.removeChild(startGameSection);
+
+  //construct the game-container div in js
+  const gameDivElement = constructQuestionContainer();
 
   //insert question-container
   bodyElement.appendChild(gameDivElement);
