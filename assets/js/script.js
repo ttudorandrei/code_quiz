@@ -1,8 +1,11 @@
 const startButtonElement = document.getElementById("start-btn");
 const startGameSection = document.getElementById("start-section-wrapper");
-const bodyElement = document.body;
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
+const timerSpanElement = document.getElementById("timer");
+const bodyElement = document.body;
+
+let timerValue = 10;
 
 const questions = [
   {
@@ -83,6 +86,14 @@ const questions = [
   },
 ];
 
+console.log(
+  startButtonElement,
+  startGameSection,
+  questionElement,
+  answerButtonsElement,
+  timer
+);
+
 // CAUTION! to add data to question/button on click without gettin the "null" error, try and use .innerHTML inside the startGame function
 
 //construct the game-container div in js
@@ -147,6 +158,19 @@ const constructQuestionContainer = () => {
   return questionContainerSection;
 };
 
+const startTimer = () => {
+  const timerTick = () => {
+    timerValue -= 1;
+    timerSpanElement.textContent = timerValue;
+
+    if (timerValue === 0) {
+      clearInterval(timer);
+    }
+  };
+
+  const timer = setInterval(timerTick, 1000);
+};
+
 //replace card-container div with game-container div
 const startGame = () => {
   //remove start-game element
@@ -157,6 +181,8 @@ const startGame = () => {
 
   //insert question-container
   bodyElement.appendChild(gameDivElement);
+
+  startTimer();
 };
 
 // Add timer
