@@ -35,10 +35,17 @@ header div {
   font-size: 4.5em;
 }
 
-.card-instructions,
-.question {
+.card-instructions {
   width: 60vw;
   font-size: 2em;
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+.question {
+  width: 60vw;
+  font-size: 3.2em;
+  font-weight: 900;
   margin-top: 2.5em;
   margin-bottom: 2.5em;
 }
@@ -73,6 +80,12 @@ header div {
   .question {
     width: 90vw;
   }
+
+  .question {
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+
   .start-button,
   .answer-btn {
     font-size: 2em;
