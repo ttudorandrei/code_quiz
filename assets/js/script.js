@@ -83,6 +83,8 @@ const questions = [
   },
 ];
 
+// CAUTION! to add data to question/button on click without gettin the "null" error, try and use .innerHTML inside the startGame function
+
 //construct the game-container div in js
 const constructQuestionContainer = () => {
   const questionContainerSection = document.createElement("section");
@@ -156,5 +158,9 @@ const startGame = () => {
   //insert question-container
   bodyElement.appendChild(gameDivElement);
 };
+
+// Add timer
+// Sync questions array with buttons and question itself
+// add High Score in local memory
 
 startButtonElement.addEventListener("click", startGame);
