@@ -88,8 +88,9 @@ const questions = [
 
 //construct the game-container div in js
 const constructQuestionContainer = () => {
-  const questionContainerDiv = document.createElement("div");
+  document.getElementById("wrapper").setAttribute("class", "wrapper");
 
+  const questionContainerDiv = document.createElement("div");
   questionContainerDiv.setAttribute("class", "question-container");
 
   const questionDiv = document.createElement("h1");
@@ -140,8 +141,6 @@ const constructQuestionContainer = () => {
   return questionContainerDiv;
 };
 
-const nextQuestion = () => {};
-
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
@@ -166,11 +165,11 @@ const startGame = () => {
   //insert question-container
   document.getElementById("wrapper").appendChild(gameDivElement);
 
+  // Starts the timer when the game starts
   startTimer();
-  nextQuestion();
+  document.getElementById("question").textContent = "dummy text";
 };
 
-// Add timer
 // Sync questions array with buttons and question itself
 // add High Score in local memory
 
