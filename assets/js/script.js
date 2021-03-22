@@ -88,11 +88,6 @@ const questions = [
 
 //construct the game-container div in js
 const constructQuestionContainer = () => {
-  const questionContainerSection = document.createElement("section");
-
-  questionContainerSection.setAttribute("id", "wrapper");
-  questionContainerSection.setAttribute("class", "wrapper");
-
   const questionContainerDiv = document.createElement("div");
 
   questionContainerDiv.setAttribute("class", "question-container");
@@ -129,10 +124,6 @@ const constructQuestionContainer = () => {
 
   fourthAnswer.textContent = "Answer 4";
 
-  bodyElement.appendChild(questionContainerSection);
-
-  document.getElementById("wrapper").appendChild(questionContainerDiv);
-
   questionContainerDiv.appendChild(questionDiv);
 
   questionContainerDiv.appendChild(btnContainerDiv);
@@ -145,8 +136,8 @@ const constructQuestionContainer = () => {
 
   btnContainerDiv.appendChild(fourthAnswer);
 
-  console.log(questionContainerSection);
-  return questionContainerSection;
+  console.log(questionContainerDiv);
+  return questionContainerDiv;
 };
 
 const nextQuestion = () => {};
@@ -173,7 +164,7 @@ const startGame = () => {
   const gameDivElement = constructQuestionContainer();
 
   //insert question-container
-  bodyElement.appendChild(gameDivElement);
+  document.getElementById("wrapper").appendChild(gameDivElement);
 
   startTimer();
   nextQuestion();
