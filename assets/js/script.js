@@ -161,42 +161,40 @@ let showQuestion = (question) => {
   });
 };
 
+//this function will remove the created elements (question and buttons) to make room for the next question and answers
 const resetState = () => {
   while (btnContainerDiv.firstChild) {
     btnContainerDiv.removeChild(btnContainerDiv.firstChild);
   }
-  console.log("reset");
 };
 
 const selectAnswer = (e) => {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
-  setStatusClass(document.body, correct);
-  // Array.from(btnContainerDiv.children).forEach((button) => {
-  //   setStatusClass(button, button.dataset.correct);
-  // });
 
-  if (correct) {
-    resetState();
-    currentQuestionIndex += 1;
-    setNextQuestion();
-    console.log("correct");
+  //if chosen answer is correct, user will be prompted with next question, else he will loose a certain amount of time. If the timer reaches 0, the game will be reset.
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    console.log("greater");
+    if (correct) {
+      resetState();
+      currentQuestionIndex += 1;
+      setNextQuestion();
+      console.log("correct");
+    } else {
+      timerValue -= 10;
+      if (timerValue <= 0) {
+        clearInterval(timerValue);
+        console.log("out of time");
+        window.location.assign("/index.html");
+      }
+      console.log("false");
+    }
   } else {
-    timerValue -= 10;
-    console.log("false");
-  }
+    //TODO create high score page, link to this page, and add redirect to that one after finishing questions
 
-  if (currentQuestionIndex === shuffledQuestions.length) {
-    console.log("Congrats!");
-  }
-};
-
-const setStatusClass = (element, correct) => {
-  clearStatusClass(element);
-  if (correct) {
-    element.setAttribute("class", "correct");
-  } else {
-    element.setAttribute("class", "false");
+    // if no more questions remain it will save the score and prompt you with the high score page
+    console.log("not greater");
+    window.location.assign("/index.html");
   }
 };
 
