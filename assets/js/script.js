@@ -161,20 +161,33 @@ let showQuestion = (question) => {
   });
 };
 
-const resetState = () => {};
+const resetState = () => {
+  while (btnContainerDiv.firstChild) {
+    btnContainerDiv.removeChild(btnContainerDiv.firstChild);
+  }
+  console.log("reset");
+};
 
 const selectAnswer = (e) => {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
-  // Array.from(answerButtonsElement.children).forEach((button) => {
+  // Array.from(btnContainerDiv.children).forEach((button) => {
   //   setStatusClass(button, button.dataset.correct);
   // });
 
   if (correct) {
+    resetState();
+    currentQuestionIndex += 1;
     setNextQuestion();
+    console.log("correct");
   } else {
     timerValue -= 10;
+    console.log("false");
+  }
+
+  if (currentQuestionIndex === shuffledQuestions.length) {
+    console.log("Congrats!");
   }
 };
 
