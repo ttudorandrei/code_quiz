@@ -7,7 +7,7 @@ const btnContainerDiv = document.getElementById("button-container");
 
 let shuffledQuestions, currentQuestionIndex;
 
-let timerValue = 10;
+let timerValue = 60;
 
 const questions = [
   {
@@ -104,6 +104,7 @@ const constructQuestionContainer = () => {
   return questionContainerDiv;
 };
 
+//this function will start the timer, decrementing one second every interval
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
@@ -138,10 +139,13 @@ const startGame = () => {
   setNextQuestion();
 };
 
+//this will move to the next question
 let setNextQuestion = () => {
+  resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 };
 
+//this function will generate buttons with the answers typed inside them
 let showQuestion = (question) => {
   document.getElementById("question").innerText = question.question;
   question.answers.forEach((answer) => {
@@ -157,9 +161,35 @@ let showQuestion = (question) => {
   });
 };
 
-const selectAnswer = () => {
+const resetState = () => {};
+
+const selectAnswer = (e) => {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
+  setStatusClass(document.body, correct);
+  // Array.from(answerButtonsElement.children).forEach((button) => {
+  //   setStatusClass(button, button.dataset.correct);
+  // });
+
+  if (correct) {
+    setNextQuestion();
+  } else {
+    timerValue -= 10;
+  }
+};
+
+const setStatusClass = (element, correct) => {
+  clearStatusClass(element);
+  if (correct) {
+    element.setAttribute("class", "correct");
+  } else {
+    element.setAttribute("class", "false");
+  }
+};
+
+const clearStatusClass = (element) => {
+  element.classList.remove("correct");
+  element.classList.remove("wrong");
 };
 
 // Sync questions array with buttons and question itself
