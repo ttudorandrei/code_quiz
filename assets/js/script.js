@@ -1,8 +1,9 @@
 const startButtonElement = document.getElementById("start-btn");
 const startGameSection = document.getElementById("start-section-wrapper");
 const questionElement = document.getElementById("question");
-const answerButtonsElement = document.getElementsByClassName("answer-btn");
+const answerButtonsElement = document.getElementById("answer-btn");
 const timerSpanElement = document.getElementById("timer");
+const btnContainerDiv = document.getElementById("button-container");
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -21,65 +22,67 @@ const questions = [
   },
 
   {
-    question: "The data type in JavaScript that can only have two values is :",
+    question: "Car makers",
     answers: [
-      { text: "boolean", correct: true },
-      { text: "function", correct: false },
-      { text: "Memory", correct: false },
-      { text: "String", correct: false },
+      { text: "Audi", correct: true },
+      { text: "Bmw", correct: false },
+      { text: "Nissan", correct: false },
+      { text: "Honda", correct: false },
     ],
   },
 
   {
-    question: "The data type in JavaScript that can only have two values is ",
+    question: "Processors",
     answers: [
-      { text: "boolean", correct: true },
-      { text: "function", correct: false },
-      { text: "Memory", correct: false },
-      { text: "String", correct: false },
+      { text: "i3", correct: true },
+      { text: "i5", correct: false },
+      { text: "i7", correct: false },
+      { text: "i9", correct: false },
     ],
   },
 
   {
-    question: "The data type in JavaScript that can only have two :",
+    question: "Planets",
     answers: [
-      { text: "boolean", correct: true },
-      { text: "function", correct: false },
-      { text: "Memory", correct: false },
-      { text: "String", correct: false },
+      { text: "Pluto", correct: true },
+      { text: "Mars", correct: false },
+      { text: "Venus", correct: false },
+      { text: "Uranus", correct: false },
     ],
   },
 
   {
-    question: "The data type in JavaScript that can only have :",
+    question: "Engines",
     answers: [
-      { text: "boolean", correct: true },
-      { text: "function", correct: false },
-      { text: "Memory", correct: false },
-      { text: "String", correct: false },
+      { text: "2JZ", correct: true },
+      { text: "RB26", correct: false },
+      { text: "K24", correct: false },
+      { text: "B22", correct: false },
     ],
   },
 
   {
-    question: "The data type in JavaScript that can only :",
+    question: "Phone",
     answers: [
-      { text: "boolean", correct: true },
-      { text: "function", correct: false },
-      { text: "Memory", correct: false },
-      { text: "String", correct: false },
+      { text: "Iphone 7", correct: true },
+      { text: "Iphone 8", correct: false },
+      { text: "Iphone X", correct: false },
+      { text: "Iphone 11", correct: false },
     ],
   },
 
   {
-    question: "The data type in JavaScript that can :",
+    question: "Samsung",
     answers: [
-      { text: "boolean", correct: true },
-      { text: "function", correct: false },
-      { text: "Memory", correct: false },
-      { text: "String", correct: false },
+      { text: "S5", correct: true },
+      { text: "S6", correct: false },
+      { text: "S7", correct: false },
+      { text: "S8", correct: false },
     ],
   },
 ];
+
+console.log(questions);
 
 //construct the game-container div in js
 const constructQuestionContainer = () => {
@@ -92,45 +95,11 @@ const constructQuestionContainer = () => {
   questionDiv.setAttribute("class", "question");
   questionDiv.setAttribute("id", "question");
 
-  const btnContainerDiv = document.createElement("div");
   btnContainerDiv.setAttribute("class", "button-container");
-  //replace answers with the actual answers for each different question
-
-  const firstAnswer = document.createElement("button");
-  firstAnswer.setAttribute("class", "answer-btn");
-  firstAnswer.setAttribute("id", "answer-one");
-
-  firstAnswer.textContent = "Answer 1";
-
-  const secondAnswer = document.createElement("button");
-  secondAnswer.setAttribute("class", "answer-btn");
-  secondAnswer.setAttribute("id", "answer-two");
-
-  secondAnswer.textContent = "Answer 2";
-
-  const thirdAnswer = document.createElement("button");
-  thirdAnswer.setAttribute("class", "answer-btn");
-  thirdAnswer.setAttribute("id", "answer-three");
-
-  thirdAnswer.textContent = "Answer 3";
-
-  const fourthAnswer = document.createElement("button");
-  fourthAnswer.setAttribute("class", "answer-btn");
-  fourthAnswer.setAttribute("id", "answer-four");
-
-  fourthAnswer.textContent = "Answer 4";
 
   questionContainerDiv.appendChild(questionDiv);
 
   questionContainerDiv.appendChild(btnContainerDiv);
-
-  btnContainerDiv.appendChild(firstAnswer);
-
-  btnContainerDiv.appendChild(secondAnswer);
-
-  btnContainerDiv.appendChild(thirdAnswer);
-
-  btnContainerDiv.appendChild(fourthAnswer);
 
   return questionContainerDiv;
 };
@@ -175,9 +144,23 @@ let setNextQuestion = () => {
 
 let showQuestion = (question) => {
   document.getElementById("question").innerText = question.question;
+  question.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    btnContainerDiv.appendChild(button);
+    button.setAttribute("id", "start-btn");
+    button.setAttribute("class", "start-button");
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+  });
 };
 
-const selectAnswer = () => {};
+const selectAnswer = () => {
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
+};
 
 // Sync questions array with buttons and question itself
 // add High Score in local memory
