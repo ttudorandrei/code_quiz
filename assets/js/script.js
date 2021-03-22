@@ -82,8 +82,6 @@ const questions = [
   },
 ];
 
-console.log(questions);
-
 //construct the game-container div in js
 const constructQuestionContainer = () => {
   document.getElementById("wrapper").setAttribute("class", "wrapper");
@@ -181,10 +179,11 @@ const selectAnswer = (e) => {
       setNextQuestion();
       console.log("correct");
     } else {
-      timerValue -= 10;
-      if (timerValue <= 0) {
-        clearInterval(timerValue);
-        console.log("out of time");
+      if (timerValue >= 10) {
+        timerValue -= 10;
+        // window.location.assign("/index.html");
+      } else if (timerValue <= 10) {
+        console.log("something");
         window.location.assign("/index.html");
       }
       console.log("false");
