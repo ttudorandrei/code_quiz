@@ -3,7 +3,8 @@ const startGameSection = document.getElementById("start-section-wrapper");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementsByClassName("answer-btn");
 const timerSpanElement = document.getElementById("timer");
-const bodyElement = document.body;
+
+let shuffledQuestions, currentQuestionIndex;
 
 let timerValue = 10;
 
@@ -20,8 +21,7 @@ const questions = [
   },
 
   {
-    question:
-      "The data type in JavaScript that can only have two values is called:",
+    question: "The data type in JavaScript that can only have two values is :",
     answers: [
       { text: "boolean", correct: true },
       { text: "function", correct: false },
@@ -31,8 +31,7 @@ const questions = [
   },
 
   {
-    question:
-      "The data type in JavaScript that can only have two values is called:",
+    question: "The data type in JavaScript that can only have two values is ",
     answers: [
       { text: "boolean", correct: true },
       { text: "function", correct: false },
@@ -42,8 +41,7 @@ const questions = [
   },
 
   {
-    question:
-      "The data type in JavaScript that can only have two values is called:",
+    question: "The data type in JavaScript that can only have two :",
     answers: [
       { text: "boolean", correct: true },
       { text: "function", correct: false },
@@ -53,8 +51,7 @@ const questions = [
   },
 
   {
-    question:
-      "The data type in JavaScript that can only have two values is called:",
+    question: "The data type in JavaScript that can only have :",
     answers: [
       { text: "boolean", correct: true },
       { text: "function", correct: false },
@@ -64,8 +61,7 @@ const questions = [
   },
 
   {
-    question:
-      "The data type in JavaScript that can only have two values is called:",
+    question: "The data type in JavaScript that can only :",
     answers: [
       { text: "boolean", correct: true },
       { text: "function", correct: false },
@@ -75,8 +71,7 @@ const questions = [
   },
 
   {
-    question:
-      "The data type in JavaScript that can only have two values is called:",
+    question: "The data type in JavaScript that can :",
     answers: [
       { text: "boolean", correct: true },
       { text: "function", correct: false },
@@ -137,7 +132,6 @@ const constructQuestionContainer = () => {
 
   btnContainerDiv.appendChild(fourthAnswer);
 
-  console.log(questionContainerDiv);
   return questionContainerDiv;
 };
 
@@ -157,7 +151,7 @@ const startTimer = () => {
 //replace card-container div with game-container div
 const startGame = () => {
   //remove start-game element
-  bodyElement.removeChild(startGameSection);
+  document.body.removeChild(startGameSection);
 
   //construct the game-container div in js
   const gameDivElement = constructQuestionContainer();
@@ -167,8 +161,23 @@ const startGame = () => {
 
   // Starts the timer when the game starts
   startTimer();
-  document.getElementById("question").textContent = "dummy text";
+  // document.getElementById("question").textContent = "dummy text";
+
+  // This will shuffle the questions
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+  currentQuestionIndex = 0;
+  setNextQuestion();
 };
+
+let setNextQuestion = () => {
+  showQuestion(shuffledQuestions[currentQuestionIndex]);
+};
+
+let showQuestion = (question) => {
+  document.getElementById("question").innerText = question.question;
+};
+
+const selectAnswer = () => {};
 
 // Sync questions array with buttons and question itself
 // add High Score in local memory
