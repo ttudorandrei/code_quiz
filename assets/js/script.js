@@ -166,6 +166,14 @@ const resetState = () => {
   }
 };
 
+const displayWrongMessage = () => {
+  document.getElementById("wrong-answer").innerText = "Wrong";
+
+  setTimeout(function () {
+    document.getElementById("wrong-answer").innerText = "";
+  }, 1000);
+};
+
 const selectAnswer = (e) => {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
@@ -187,6 +195,7 @@ const selectAnswer = (e) => {
         window.location.assign("/index.html");
       }
       console.log("false");
+      displayWrongMessage();
     }
   } else {
     //TODO create high score page, link to this page, and add redirect to that one after finishing questions

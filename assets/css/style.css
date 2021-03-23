@@ -66,6 +66,18 @@ header div {
   display: block;
 }
 
+.wrong-answer {
+  margin-top: 2em;
+  font-size: 3.5em;
+  color: red;
+  font-weight: 800;
+  text-align: center;
+  width: 60vw;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 @media screen and (max-width: 1024px) {
   .card-instructions,
   .question {
@@ -77,6 +89,20 @@ header div {
   .card-instructions,
   .question {
     width: 80vw;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .wrong-answer {
+    font-size: 3em;
+  }
+
+  .card-container h1 {
+    font-size: 3.5em;
+  }
+
+  .wrapper {
+    height: 55em;
   }
 }
 
@@ -84,15 +110,25 @@ header div {
   .card-instructions,
   .question {
     width: 90vw;
+    font-size: 1.7em;
   }
 
   .question {
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 600;
+  }
+
+  .wrong-answer {
+    margin-top: 1.5em;
+    font-size: 2em;
+  }
+
+  .wrapper {
+    height: 25em;
   }
 
   .start-button,
   .answer-btn {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 }
