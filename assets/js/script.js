@@ -166,8 +166,9 @@ const resetState = () => {
   }
 };
 
+// in case the wrong answer is selected, this will display a message saying "Wrong!" that stays on the screen for a second
 const displayWrongMessage = () => {
-  document.getElementById("wrong-answer").innerText = "Wrong";
+  document.getElementById("wrong-answer").innerText = "Wrong!";
 
   setTimeout(function () {
     document.getElementById("wrong-answer").innerText = "";
@@ -190,59 +191,42 @@ const selectAnswer = (e) => {
         timerValue -= 10;
       } else if (timerValue <= 10) {
         gameOver();
-        // localStorage.setItem(highScore, timerValue);
       }
       displayWrongMessage();
     }
   } else {
     //TODO create high score page, link to this page, and add redirect to that one after finishing questions
+
     // if no more questions remain it will save the score and prompt you with the high score page
     gameOver();
-
-    // localStorage.setItem(highScore, timerValue);
   }
 };
 
+// this prompts the user with his high score
 const gameOver = () => {
   resetState();
-  document.getElementById("question").innerText = document.getElementById(
+  (document.getElementById("question").innerText = document.getElementById(
     "question"
-  ).innerText = "Game over! Your score is " + timerValue;
-  // localStorage.setItem(finalScore, timerValue);
-  buildHighScoreContainer();
+  ).innerText =
+    "Game over! You will be automatically redirected to the high score page! Your score is " +
+    timerValue),
+    saveData();
   timerValue = 1;
 };
-console.log(localStorage);
 
-const clearStatusClass = (element) => {
-  element.classList.remove("correct");
-  element.classList.remove("wrong");
-};
-
-const buildHighScoreContainer = () => {
-  const yourScore = document.createElement("input");
-  yourScore.placeholder = "Type in your name";
-  yourScore.setAttribute("id", "input");
-  yourScore.setAttribute("class", "start-button");
-  btnContainerDiv.appendChild(yourScore);
-
-  const submitButton = document.createElement("button");
-  submitButton.innerText = "Submit";
-  submitButton.setAttribute("id", "start-btn");
-  submitButton.setAttribute("class", "start-button");
-  btnContainerDiv.appendChild(submitButton);
-
-  saveData();
-
-  submitButton.addEventListener("click", saveData());
+// this function will redirect the user to the high score page
+const redirect = () => {
+  setTimeout(function () {
+    window.location = "https://www.google.com";
+  }, 5000);
 };
 
 //this function logs the result in local memory
 const saveData = () => {
   localStorage.setItem("score", timerValue);
+  redirect();
 };
 
-// Sync questions array with buttons and question itself
 // add High Score in local memory
 
 startButtonElement.addEventListener("click", startGame);
