@@ -9,15 +9,14 @@
   </head>
   <body>
     <header>
-      <div>Restart</div>
+      <a href="index.html">Restart</a>
     </header>
 
     <section class="wrapper" id="form-container">
-      <ol id="list">
-        <li id="list-item">Name peter</li>
-      </ol>
-      <input type="text" id="name-input" placeholder="Name" />
-      <button onclick="addListItem()" id="submit-btn">submit</button>
+      <ol id="list"></ol>
+      <button onclick="clearUnusedStorage()" id="submit-btn">
+        Clear Score
+      </button>
     </section>
     <script src="assets/js/high-score.js"></script>
   </body>

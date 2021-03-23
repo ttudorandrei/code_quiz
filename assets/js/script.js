@@ -4,6 +4,7 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-btn");
 const timerSpanElement = document.getElementById("timer");
 const btnContainerDiv = document.getElementById("button-container");
+let userName = document.getElementById("name-input").value;
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -134,6 +135,7 @@ const startGame = () => {
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   setNextQuestion();
+  // addName();
 };
 
 //this will move to the next question
@@ -216,7 +218,7 @@ const gameOver = () => {
 // this function will redirect the user to the high score page
 const redirect = () => {
   setTimeout(function () {
-    window.location = "https://www.google.com";
+    window.location = "/high-score.html";
   }, 5000);
 };
 
@@ -226,6 +228,11 @@ const saveData = () => {
   redirect();
 };
 
+const addListItem = () => {
+  const textValue = document.getElementById("name-input").value;
+  window.localStorage.setItem("name", textValue);
+  console.log;
+};
 // add High Score in local memory
 
 startButtonElement.addEventListener("click", startGame);

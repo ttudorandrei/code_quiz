@@ -64,6 +64,7 @@ header div {
   border-radius: 10px;
   margin-top: 1em;
   display: block;
+  min-width: 8em;
 }
 
 .wrong-answer {

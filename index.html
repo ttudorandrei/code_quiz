@@ -10,7 +10,9 @@
 
   <body>
     <header>
-      <div class="highscore"><a href="#">View High Score</a></div>
+      <div class="highscore">
+        <a href="/high-score.html">View High Score</a>
+      </div>
       <div class="time-counter">Time: <span id="timer">0</span></div>
     </header>
 
@@ -28,6 +30,10 @@
         </div>
 
         <div>
+          <input type="text" id="name-input" placeholder="Name" />
+          <button class="start-button" onclick="addListItem()" id="submit-btn">
+            submit
+          </button>
           <button id="start-btn" class="start-button">Start</button>
         </div>
       </div>

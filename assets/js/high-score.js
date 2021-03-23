@@ -1,8 +1,6 @@
-const submitButton = document.getElementById("submit-btn");
-
-const addListItem = (event) => {
+const addListItem = () => {
   const textValue =
-    document.getElementById("name-input").value +
+    window.localStorage.getItem("name") +
     " " +
     window.localStorage.getItem("score");
   const listNode = document.getElementById("list");
@@ -14,4 +12,19 @@ const addListItem = (event) => {
   console.log("something");
 };
 
-submitButton.addEventListener("click", addListItem());
+window.onload = addListItem();
+
+const clearUnusedStorage = () => {
+  window.localStorage.removeItem("score");
+  window.localStorage.removeItem("name");
+};
+
+// let createDataArray = () => {
+//   let formData = {};
+//   formData.name = document.getElementById("name-input").value;
+//   formData.score = window.localStorage.getItem("score");
+
+//   let formDataArray = localStorage.getItem("formDataArray") || [];
+
+//   formDataArray.push(formData);
+// };
