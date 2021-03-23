@@ -135,7 +135,6 @@ const startGame = () => {
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   setNextQuestion();
-  // addName();
 };
 
 //this will move to the next question
@@ -228,11 +227,11 @@ const saveData = () => {
   redirect();
 };
 
+//this logs the name in local memory
 const addListItem = () => {
   const textValue = document.getElementById("name-input").value;
   window.localStorage.setItem("name", textValue);
   console.log;
 };
-// add High Score in local memory
 
 startButtonElement.addEventListener("click", startGame);
