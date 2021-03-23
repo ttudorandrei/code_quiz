@@ -189,36 +189,57 @@ const selectAnswer = (e) => {
       if (timerValue >= 10) {
         timerValue -= 10;
       } else if (timerValue <= 10) {
-        youLose();
+        gameOver();
+        // localStorage.setItem(highScore, timerValue);
       }
       displayWrongMessage();
     }
   } else {
     //TODO create high score page, link to this page, and add redirect to that one after finishing questions
     // if no more questions remain it will save the score and prompt you with the high score page
-    youWin();
+    gameOver();
+
+    // localStorage.setItem(highScore, timerValue);
   }
 };
 
-const youWin = () => {
+const gameOver = () => {
   resetState();
   document.getElementById("question").innerText = document.getElementById(
     "question"
   ).innerText = "Game over! Your score is " + timerValue;
+  // localStorage.setItem(finalScore, timerValue);
+  buildHighScoreContainer();
   timerValue = 1;
 };
-
-const youLose = () => {
-  resetState();
-  document.getElementById("question").innerText = document.getElementById(
-    "question"
-  ).innerText = "Game over! Your score is " + 0;
-  timerValue = 1;
-};
+console.log(localStorage);
 
 const clearStatusClass = (element) => {
   element.classList.remove("correct");
   element.classList.remove("wrong");
+};
+
+const buildHighScoreContainer = () => {
+  const yourScore = document.createElement("input");
+  yourScore.placeholder = "Type in your name";
+  yourScore.setAttribute("id", "input");
+  yourScore.setAttribute("class", "start-button");
+  btnContainerDiv.appendChild(yourScore);
+
+  const submitButton = document.createElement("button");
+  submitButton.innerText = "Submit";
+  submitButton.setAttribute("id", "start-btn");
+  submitButton.setAttribute("class", "start-button");
+  btnContainerDiv.appendChild(submitButton);
+
+  saveData();
+
+  submitButton.addEventListener("click", saveData());
+};
+
+//this function logs the result in local memory
+const saveData = () => {
+  localStorage.setItem("score", timerValue);
 };
 
 // Sync questions array with buttons and question itself
