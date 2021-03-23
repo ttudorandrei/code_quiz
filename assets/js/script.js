@@ -185,25 +185,35 @@ const selectAnswer = (e) => {
       resetState();
       currentQuestionIndex += 1;
       setNextQuestion();
-      console.log("correct");
     } else {
       if (timerValue >= 10) {
         timerValue -= 10;
-        // window.location.assign("/index.html");
       } else if (timerValue <= 10) {
-        console.log("something");
-        window.location.assign("/index.html");
+        youLose();
       }
-      console.log("false");
       displayWrongMessage();
     }
   } else {
     //TODO create high score page, link to this page, and add redirect to that one after finishing questions
-
     // if no more questions remain it will save the score and prompt you with the high score page
-    console.log("not greater");
-    window.location.assign("/index.html");
+    youWin();
   }
+};
+
+const youWin = () => {
+  resetState();
+  document.getElementById("question").innerText = document.getElementById(
+    "question"
+  ).innerText = "Game over! Your score is " + timerValue;
+  timerValue = 1;
+};
+
+const youLose = () => {
+  resetState();
+  document.getElementById("question").innerText = document.getElementById(
+    "question"
+  ).innerText = "Game over! Your score is " + 0;
+  timerValue = 1;
 };
 
 const clearStatusClass = (element) => {
