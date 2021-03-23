@@ -129,7 +129,6 @@ const startGame = () => {
 
   // Starts the timer when the game starts
   startTimer();
-  // document.getElementById("question").textContent = "dummy text";
 
   // This will shuffle the questions
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
