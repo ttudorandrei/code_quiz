@@ -5,7 +5,7 @@ const getNameFromLocalStorage = () => {
   if (name) {
     return name;
   } else {
-    return "Please type";
+    return [];
   }
 };
 
@@ -14,7 +14,7 @@ const getScoreFromLocalStorage = () => {
   if (highScore) {
     return highScore;
   } else {
-    return "your name";
+    return [];
   }
 };
 

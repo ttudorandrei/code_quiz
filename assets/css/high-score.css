@@ -53,3 +53,8 @@ button {
   font-size: 3em;
   margin: 0;
 }
+
+button:hover {
+  opacity: 70%;
+  transform: scale(1.05);
+}

@@ -98,6 +98,11 @@ button {
   transform: translate(-50%);
 }
 
+button:hover {
+  opacity: 70%;
+  transform: scale(1.05);
+}
+
 @media screen and (max-width: 1024px) {
   .card-instructions,
   .question {

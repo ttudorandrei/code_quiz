@@ -114,6 +114,7 @@ const startTimer = () => {
 
     if (timerValue === 0) {
       clearInterval(timer);
+      gameOver();
     }
   };
 
@@ -193,6 +194,7 @@ const selectAnswer = (e) => {
       if (timerValue >= 10) {
         timerValue -= 10;
       } else if (timerValue <= 10) {
+        timerValue = 1;
         gameOver();
       }
       displayWrongMessage();
@@ -214,14 +216,13 @@ const gameOver = () => {
     "Game over! You will be automatically redirected to the high score page! Your score is " +
     timerValue),
     saveData();
-  timerValue = 1;
 };
 
 // this function will redirect the user to the high score page
 const redirect = () => {
   setTimeout(function () {
     window.location = "./high-score.html";
-  }, 5000);
+  }, 4000);
 };
 
 //this function logs the result in local memory
