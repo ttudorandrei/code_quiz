@@ -24,62 +24,63 @@ const questions = [
   },
 
   {
-    question: "Car makers",
+    question:
+      "The function: 'const myFunction = () => {}' is specific to which version of JavaScript?",
     answers: [
-      { text: "Audi", correct: true },
-      { text: "Bmw", correct: false },
-      { text: "Nissan", correct: false },
-      { text: "Honda", correct: false },
+      { text: "ES1", correct: false },
+      { text: "ES3", correct: false },
+      { text: "ES5", correct: false },
+      { text: "ES6", correct: true },
     ],
   },
 
   {
-    question: "Processors",
+    question: "'Math.random()' is:",
     answers: [
-      { text: "i3", correct: true },
-      { text: "i5", correct: false },
-      { text: "i7", correct: false },
-      { text: "i9", correct: false },
+      { text: "An array", correct: false },
+      { text: "A function", correct: false },
+      { text: "A method", correct: true },
+      { text: "An object", correct: false },
     ],
   },
 
   {
-    question: "Planets",
+    question: "Using a while() loop can:",
     answers: [
-      { text: "Pluto", correct: true },
-      { text: "Mars", correct: false },
-      { text: "Venus", correct: false },
-      { text: "Uranus", correct: false },
+      { text: "Break you machine", correct: true },
+      { text: "Break your browser", correct: false },
+      { text: "Improve user experience", correct: false },
+      { text: "None of the above", correct: false },
     ],
   },
 
   {
-    question: "Engines",
+    question: "How do you add a singe line comment in JavaScript?",
     answers: [
-      { text: "2JZ", correct: true },
-      { text: "RB26", correct: false },
-      { text: "K24", correct: false },
-      { text: "B22", correct: false },
+      { text: "'This is a comment'", correct: false },
+      { text: "//This is a comment", correct: true },
+      { text: "/*This is a comment*/", correct: false },
+      { text: "<--This is a comment-->", correct: false },
     ],
   },
 
   {
-    question: "Phone",
+    question: "Which one of the next frameworks are JavaScript frameworks:",
     answers: [
-      { text: "Iphone 7", correct: true },
-      { text: "Iphone 8", correct: false },
-      { text: "Iphone X", correct: false },
-      { text: "Iphone 11", correct: false },
+      { text: "Vue", correct: false },
+      { text: "React", correct: false },
+      { text: "jQuery", correct: false },
+      { text: "All of the above", correct: true },
     ],
   },
 
   {
-    question: "Samsung",
+    question: "What statement supplies the value of a function",
     answers: [
-      { text: "S5", correct: true },
-      { text: "S6", correct: false },
-      { text: "S7", correct: false },
-      { text: "S8", correct: false },
+      { text: "cancel", correct: false },
+      { text: "continue", correct: false },
+      { text: "return", correct: true },
+      { text: "valueOf", correct: false },
     ],
   },
 ];
