@@ -4,7 +4,8 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-btn");
 const timerSpanElement = document.getElementById("timer");
 const btnContainerDiv = document.getElementById("button-container");
-let userName = document.getElementById("name-input").value;
+const submitButton = document.getElementById("submit-btn");
+const inputForm = document.getElementById("name-input");
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -217,7 +218,7 @@ const gameOver = () => {
 // this function will redirect the user to the high score page
 const redirect = () => {
   setTimeout(function () {
-    window.location = "/high-score.html";
+    window.location = "./high-score.html";
   }, 5000);
 };
 
@@ -231,7 +232,9 @@ const saveData = () => {
 const addListItem = () => {
   const textValue = document.getElementById("name-input").value;
   window.localStorage.setItem("name", textValue);
-  console.log;
+  document.getElementById("remove-form-after-submit").removeChild(submitButton);
+  document.getElementById("remove-form-after-submit").removeChild(inputForm);
 };
 
+document.getElementById("submit-btn").addEventListener("click", addListItem);
 startButtonElement.addEventListener("click", startGame);
