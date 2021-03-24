@@ -9,7 +9,7 @@ const inputForm = document.getElementById("name-input");
 
 let shuffledQuestions, currentQuestionIndex;
 
-let timerValue = 60;
+let timerValue = 140;
 
 const questions = [
   {
