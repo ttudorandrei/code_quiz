@@ -195,14 +195,11 @@ const selectAnswer = (e) => {
         timerValue -= 10;
       } else if (timerValue <= 10) {
         timerValue = 1;
-        gameOver();
       }
       displayWrongMessage();
     }
   } else {
-    //TODO create high score page, link to this page, and add redirect to that one after finishing questions
-
-    // if no more questions remain it will save the score and prompt you with the high score page
+    // if there are no more questions left it will save the score and prompt you with the high score page
     gameOver();
   }
 };
