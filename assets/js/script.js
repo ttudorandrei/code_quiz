@@ -45,7 +45,7 @@ const questions = [
   },
 
   {
-    question: "Using a while() loop can:",
+    question: "Improper use of the while() loop can:",
     answers: [
       { text: "Break you machine", correct: true },
       { text: "Break your browser", correct: false },
