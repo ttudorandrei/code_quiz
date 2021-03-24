@@ -6,7 +6,6 @@ html {
 header {
   display: flex;
   justify-content: space-between;
-  /* border: 1px black solid; */
   font-size: 2em;
 }
 

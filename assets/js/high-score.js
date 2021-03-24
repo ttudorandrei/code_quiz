@@ -1,30 +1,27 @@
+const listNode = document.getElementById("list");
+
+// creates a list entry that contains user name and score
 const addListItem = () => {
   const textValue =
     window.localStorage.getItem("name") +
     " " +
     window.localStorage.getItem("score");
-  const listNode = document.getElementById("list");
   const liNode = document.createElement("li");
   const txtNode = document.createTextNode(textValue);
 
   liNode.appendChild(txtNode);
   listNode.appendChild(liNode);
-  console.log("something");
 };
 
+//creates a list item containing the name and score of the player
 window.onload = addListItem();
 
 const clearUnusedStorage = () => {
   window.localStorage.removeItem("score");
   window.localStorage.removeItem("name");
+  location.reload();
 };
 
-// let createDataArray = () => {
-//   let formData = {};
-//   formData.name = document.getElementById("name-input").value;
-//   formData.score = window.localStorage.getItem("score");
-
-//   let formDataArray = localStorage.getItem("formDataArray") || [];
-
-//   formDataArray.push(formData);
-// };
+document
+  .getElementById("submit-btn")
+  .addEventListener("click", clearUnusedStorage);
