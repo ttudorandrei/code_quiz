@@ -75,7 +75,8 @@ const questions = [
   },
 
   {
-    question: "What statement supplies the value of a function",
+    question:
+      "What statement supplies the value of a functionWhich of the following statements supplies the value of a function:",
     answers: [
       { text: "cancel", correct: false },
       { text: "continue", correct: false },
