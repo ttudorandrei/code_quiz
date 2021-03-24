@@ -1,12 +1,28 @@
 const listNode = document.getElementById("list");
 
+const getNameFromLocalStorage = () => {
+  const name = window.localStorage.getItem("name");
+  if (name) {
+    return name;
+  } else {
+    return "Please type";
+  }
+};
+
+const getScoreFromLocalStorage = () => {
+  const highScore = window.localStorage.getItem("score");
+  if (highScore) {
+    return highScore;
+  } else {
+    return "your name";
+  }
+};
+
 // creates a list entry that contains user name and score
 const addListItem = () => {
   const textValue =
-    window.localStorage.getItem("name") +
-    " " +
-    window.localStorage.getItem("score");
-  const liNode = document.createElement("li");
+    getNameFromLocalStorage() + " " + getScoreFromLocalStorage();
+  const liNode = document.createElement("div");
   const txtNode = document.createTextNode(textValue);
 
   liNode.appendChild(txtNode);

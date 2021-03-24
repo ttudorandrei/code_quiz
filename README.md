@@ -4,7 +4,7 @@ Coding Quiz Game
 
 ## Description
 
-As developers, we were tasked with buidilng a Quiz web application.
+As developers, we were tasked with building a Quiz web application.
 
 When the Quiz starts, the questions are presented to the user in a random order.
 
