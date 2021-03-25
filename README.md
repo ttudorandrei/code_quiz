@@ -22,9 +22,15 @@ User can clear High Score.
 
 User can return to the main quiz page from High Score page and start the game again.
 
-User can vie High Score by clicking the High Score link on top left corner of the start page.
+User can view High Score by clicking the High Score link on top left corner of the start page.
 
 ## Screenshot
+
+![Screenshot of the Start page](/assets/images/screenshot-start-page.png)
+
+![Screenshot of one of the questions](/assets/images/screenshot-question.png)
+
+![Screenshot of High Score page](/assets/images/screenshot-high-score.png)
 
 ## Link to deployed application
 
