@@ -1,6 +1,4 @@
-# Title
-
-Coding Quiz Game
+# Coding Quiz Game
 
 ## Description
 
