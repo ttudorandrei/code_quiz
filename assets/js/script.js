@@ -142,13 +142,13 @@ const startGame = () => {
 };
 
 //this will move to the next question
-let setNextQuestion = () => {
+const setNextQuestion = () => {
   resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 };
 
 //this function will generate buttons with the answers typed inside them
-let showQuestion = (question) => {
+const showQuestion = (question) => {
   document.getElementById("question").innerText = question.question;
   question.answers.forEach((answer) => {
     const button = document.createElement("button");
