@@ -231,7 +231,7 @@ const saveData = () => {
 //this logs the name in local memory
 const addListItem = () => {
   const textValue = document.getElementById("name-input").value;
-  window.localStorage.setItem("name", textValue);
+  localStorage.setItem("name", textValue);
   document.getElementById("remove-form-after-submit").removeChild(submitButton);
   document.getElementById("remove-form-after-submit").removeChild(inputForm);
 };

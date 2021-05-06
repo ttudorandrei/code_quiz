@@ -1,7 +1,7 @@
 const listNode = document.getElementById("list");
 
 const getNameFromLocalStorage = () => {
-  const name = window.localStorage.getItem("name");
+  const name = localStorage.getItem("name");
   if (name) {
     return name;
   } else {
@@ -10,7 +10,7 @@ const getNameFromLocalStorage = () => {
 };
 
 const getScoreFromLocalStorage = () => {
-  const highScore = window.localStorage.getItem("score");
+  const highScore = localStorage.getItem("score");
   if (highScore) {
     return highScore;
   } else {
@@ -33,8 +33,8 @@ const addListItem = () => {
 window.onload = addListItem();
 
 const clearUnusedStorage = () => {
-  window.localStorage.removeItem("score");
-  window.localStorage.removeItem("name");
+  localStorage.removeItem("score");
+  localStorage.removeItem("name");
   location.reload();
 };
 
